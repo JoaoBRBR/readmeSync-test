@@ -1,0 +1,78 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Your API description",
+    "version" : "0.8",
+    "title" : "testing swagger-maven-plugin"
+  },
+  "host" : "test.signosoft.com",
+  "tags" : [ {
+    "name" : "certificate",
+    "description" : "all types of api"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/api/REST/getCertificates" : {
+      "post" : {
+        "tags" : [ "certificate" ],
+        "summary" : "/REST/getCertificates",
+        "description" : "use o ID",
+        "operationId" : "getCertificates",
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Bearer Token",
+          "required" : true,
+          "type" : "string",
+          "default" : "Bearer "
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/api/restLogin" : {
+      "post" : {
+        "tags" : [ "certificate" ],
+        "summary" : "restLogin",
+        "description" : "use o ID",
+        "operationId" : "jsonLogin",
+        "parameters" : [ {
+          "name" : "login",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
